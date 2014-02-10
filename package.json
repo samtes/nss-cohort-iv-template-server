@@ -3,10 +3,11 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "node app.js"
+    "start": "node app/app.js"
   },
   "dependencies": {
-    "express": "*"
+    "express": "*",
+    "lodash": "*"
   },
   "devDependencies": {
     "grunt" : "*",

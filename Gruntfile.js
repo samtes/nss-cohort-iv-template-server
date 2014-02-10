@@ -6,7 +6,7 @@ module.exports = function(grunt){
     // ---------------------------------------------------------------------- //
     watch: {
       jshint: {
-        files: ['app.js', 'Gruntfile.js', 'routes/**/*.js'],
+        files: ['Gruntfile.js', 'app/app.js', 'app/routes/**/*.js', 'app/lib/**/*.js'],
         tasks: ['jshint:all']
       }
     },
@@ -17,9 +17,10 @@ module.exports = function(grunt){
         reporter: require('jshint-stylish')
       },
       all: [
-        'app.js',
         'Gruntfile.js',
-        'routes/**/*.js'
+        'app/app.js',
+        'app/routes/**/*.js',
+        'app/lib/**/*.js'
       ]
     }
   });

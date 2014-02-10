@@ -5,7 +5,7 @@ var home = require('./routes/home');
 var app = express();
 
 app.set('port', process.env.PORT || 4000);
-app.use(express.logger('dev'));
+app.use(express.logger(':remote-addr -> :method :url [:status]'));
 app.use(express.bodyParser());
 app.use(express.methodOverride());
 app.use(app.router);
