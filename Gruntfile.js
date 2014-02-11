@@ -6,7 +6,7 @@ module.exports = function(grunt){
     // ---------------------------------------------------------------------- //
     watch: {
       jshint: {
-        files: ['Gruntfile.js', 'app/app.js', 'app/routes/**/*.js', 'app/lib/**/*.js'],
+        files: ['Gruntfile.js', 'app/**/*.js'],
         tasks: ['jshint:all']
       }
     },
@@ -18,9 +18,7 @@ module.exports = function(grunt){
       },
       all: [
         'Gruntfile.js',
-        'app/app.js',
-        'app/routes/**/*.js',
-        'app/lib/**/*.js'
+        'app/**/*.js'
       ]
     }
   });
