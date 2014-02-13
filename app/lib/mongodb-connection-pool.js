@@ -1,22 +1,20 @@
 'use strict';
 
 var MongoClient = require('mongodb').MongoClient;
-var db, dbname, app;
+var dbname;
 
-exports.initialize = function(name, application){
+exports.initialize = function(name){
   dbname = name;
-  app = application;
   return connect;
 };
 
 function connect(req, res, next){
-  if(!db){
+  if(!global.mdb){
     var connection = 'mongodb://localhost/' + dbname;
 
-    MongoClient.connect(connection, function(err, tmpDb) {
+    MongoClient.connect(connection, function(err, mdb) {
       if(err){throw err;}
-      db = tmpDb;
-      app.locals.db = db;
+      global.mdb = mdb;
       console.log('Connected to MongoDB');
 
       next();

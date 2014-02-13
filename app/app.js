@@ -4,12 +4,14 @@ var dbname = 'database-name';
 var port = process.env.PORT || 4000;
 
 var d = require('./lib/request-debug');
+var connectMongo = require('./lib/mongodb-connection-pool').initialize(dbname);
+
 var express = require('express');
 var home = require('./routes/home');
 var app = express();
 
 /* --- pipeline begins */
-app.use(require('./lib/mongodb-connection-pool').initialize(dbname, app));
+app.use(connectMongo);
 app.use(express.logger(':remote-addr -> :method :url [:status]'));
 app.use(require('./lib/cors'));
 app.use(express.bodyParser());
